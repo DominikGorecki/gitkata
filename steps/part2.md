@@ -9,7 +9,7 @@ Your branch is up-to-date with 'origin/master'.
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 
-	.md
+	DominikGorecki.md
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
@@ -19,3 +19,22 @@ nothing added to commit but untracked files present (use "git add" to track)
 - The scratch file is not something we want to push up to the server or even commit to our local repository. The scratch file is just a document we want to keep to ourselves to keep random notes on this project. 
 - Let's "add" *[GH_Username].md* to Git. This will essentially tel Git to track this file: ```git add DominikGorecki.md```
 - Let's check the status again: ```git status```
+- Now you should see something that indicates that you have 1 new tracked file yet to be commmited and 1 untracked file:
+```
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   DominikGorecki.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	scratch.md
+  ```
+
+5. Let's now commit these staged changes to your local repository: ```git commit -m "
+
+Got to [Part 3](part3.md)
