@@ -35,7 +35,7 @@ Untracked files:
 	scratch.md
   ```
 
-5. Let's now commit these staged changes to your local repository: ```git commit -m``` 
+5. Let's now commit these staged changes to your local repository: ```git commit -m "Adding DominikGorecki.md"``` 
 - At this point, we haven't pushed our changes up to our repository server (origin) so we go to github.com, 
 
 Got to [Part 3](part3.md)
