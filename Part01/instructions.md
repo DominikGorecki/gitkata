@@ -20,8 +20,9 @@ Your branch is up-to-date with 'origin/master'.
 nothing to commit, working tree clean
 ```
 
-# Adding 
-4. Let's add a file to our repository. Inside out the nikgo folder, we will add a [github_username].md file. For example, since my github username is DominikGorecki, I have created a new file called, *DominikGorecki.md* in my favorite editor vim (but feel free to use notepad, atom, vscode, or whatever). 
+# Step 2: Adding & Committing
+## Create a new tracked file to Repo
+Let's add a file to our repository. Inside our the ```gitkata/Part01/students/``` folder, we will add a ```[github_username].md``` file. For example, since my github username is DominikGorecki, I have created a new file called, *DominikGorecki.md* in my favorite editor vim (but feel free to use notepad, atom, vscode, or whatever). 
 - After we create the file, let's check the status again: ```git status```
 - You should see something like this output that indicates that you have an untracked file in your repo:
 ```
@@ -31,39 +32,40 @@ Your branch is up-to-date with 'origin/master'.
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 
-	DominikGorecki.md
+	 Part01/students/DominikGorecki.md
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
-- Let's also add a file called *scratch.md* in our favorite text editor
+## Create a new Untracked File 
+- Let's also add a file called *scratch.md* in the ```gitkata/Part01/``` folder
 - Let's check status again: ```git status```
 - You should now notice that *scratch.md* is also in the "Untracked files list"
 - The scratch file is not something we want to push up to the server or even commit to our local repository. The scratch file is just a document we want to keep to ourselves to keep random notes on this project. 
-- Let's "add" *[GH_Username].md* to Git. This will essentially tel Git to track this file: ```git add DominikGorecki.md```
+- Let's "add" *[GH_Username].md* to Git. This will essentially tel Git to track this file: ```git add Part01/students/DominikGorecki.md```
 - Let's check the status again: ```git status```
 - Now you should see something that indicates that you have 1 new tracked file yet to be commmited and 1 untracked file:
 ```
 On branch master
-Your branch is up-to-date with 'origin/master'.
+Your branch is up to date with 'origin/master'.
 
 Changes to be committed:
   (use "git reset HEAD <file>..." to unstage)
 
-	new file:   DominikGorecki.md
+        new file:   Part01/students/DominikGorecki.md
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 
-	scratch.md
-  ```
+        Part01/scratch.md
+```
+>Note: we assume that you are running these commands from the root of the repo ```.../gitkata/```
 
-5. Let's now commit these staged changes to your local repository: ```git commit -m "Adding DominikGorecki.md"``` 
+## Committing Changes
+Let's now commit these staged changes to your local repository: ```git commit -m "Adding DominikGorecki.md"``` 
 - At this point, we haven't pushed our changes up to our repository server (origin) so when we go to github.com you will not see your commit there. 
 
-Got to [Part 3](part3.md)
-
 # Branching
-5. Oh crap! We just realized that we did all that work on the master branch! Not cool. We should probably put it into a different branch so that we can do a pull request and compartmentalize changes!
+ Oh crap! We just realized that we did all that work on the master branch! I make this mistake all the time. We should probably put it into a different branch so that we can do a pull request and compartmentalize changes!
 
 - Let's create a new branch then. You can create a new branch and check it out to be your active branch at the same time: ```git checkout -b newStudent/DominikGorecki```
 
@@ -76,7 +78,7 @@ master
 ```
 
 # Resetting Origin/Master
-6. At this point our local master branch has a commit against it that we don't want and won't push up to origin. You have the option to revert your commits to this branch, or simply to reset your local master branch to the origin's master branch. We're going to try our hand at reverting commits later, so for now we'll try the second option: reset our local branch to that of the origin--that is, no matter what we have on this branch, we'll make it look like the same branch (master) on origin. 
+ At this point our local master branch has a commit against it that we don't want and won't push up to origin. You have the option to revert your commits to this branch, or simply to reset your local master branch to the origin's master branch. We're going to try our hand at reverting commits later, so for now we'll try the second option: reset our local branch to that of the origin--that is, no matter what we have on this branch, we'll make it look like the same branch (master) on origin. 
 
 - First let's switch back to the master branch (set the current active branch to be master): ```git branch master``
 
@@ -96,3 +98,11 @@ xxxxxxx Adding DominikGorecki.md
 - Next we run the reset command: ```git reset --hard origin/master```
 
 - Now if we run ```git log --oneline``` we will only see the original commits that occurred before you perfomred the clone
+
+# Pushing Up to Origin
+Right now it seems like we have lost our hard work of creating a [GitHubUsername.md] file. But all hope is not lost. 
+
+- We run ```git branch``` to ensure that our *newStudent/...* branch is still there
+- Now we checkout that branch: ```git checkout newStudent/DominikGorecki```
+- If we check the ```../Part01/students/``` folder, we will see that our file is there.
+- Let's now push our changes up to the server (origin): ```git push origin newStudent/DominikGorecki```
